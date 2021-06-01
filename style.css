@@ -1,8 +1,92 @@
-.body{
-	background-color:black;
+*{
+	margin: 0px;
+}
+
+a{
+	color: black;
+ 	text-decoration: none;
+}
+
+a:hover{
+	color:rgb(226, 228, 230);
+}
+
+a:focus{
+	color: white;
 }
 
 .webtitle{
-	font-family: 'Vast Shadow', cursive;
+	font-family: 'Homemade Apple', cursive;
+	text-align: center;
+	font-size: 26px;
+	padding: 5px 10px 5px 15px;
+	height: 50px;
+	border: 3px rgb(247, 250, 245);
+}
+
+.menu-list{
+	background: #C4C4C4;
+	padding: 10px 2px 10px 20px;
+	border: 0px;
+}
+
+li.menulink{
+	margin: 0 10px 0 0;
+}
+.menuitem{
+	display: inline-block;
+	font-family: Poppins;
+}
+
+.menuitem::after, .navitem::before{
+	content: "\00a0";
+}
+
+.menulist{
+	list-style-type: none;
+}
+
+.menu-bar{
+	padding-left: 0px;
+}
+
+.menubar-search{
+	float: right;
+}
+
+#menubar-search-input{
+	font-family: 'Red Hat Display', sans-serif;
+	font-size: 15px;
+	padding: 0px 2px 0px 3px;
+	color:  rgb(120, 117, 116);
+	border-radius: 2px;
+	border: 1px solid #dadada;
+	height: 22.5px;
+	width: 210px;
+}
+
+.homepage-background{
+	background-image: url(https://b.zmtcdn.com/data/pictures/chains/8/19546988/e9f25f9e9daf2e355e7c44b5877c46ba.jpg);
+	height: 800px;
+	width: 1440px;
+	position: absolute;
+	background-image: fill;
+	background-position: center;
+	background-position: no-repeat;
+}
+
+.homepage-searchbar{
+	position: relative;
+	left: 475px;
+	top: 300px;
+}
+
+#homepage-searchbar-input{
+	font-family: 'Red Hat Display', sans-serif;
 	font-size: 30px;
+	padding: 0px 2px 0px 3px;
+	color:  rgb(120, 117, 116);
+	width:500px;
+	border-radius: 2px;
+	border: 1px solid #dadada;
 }
