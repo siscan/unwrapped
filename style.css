@@ -1,3 +1,6 @@
+
+/*  CSS FOR HOMEPAGE */
+
 *{
 	margin: 0px;
 }
@@ -67,17 +70,17 @@ li.menulink{
 
 .homepage-background{
 	background-image: url(https://b.zmtcdn.com/data/pictures/chains/8/19546988/e9f25f9e9daf2e355e7c44b5877c46ba.jpg);
-	height: 800px;
-	width: 1440px;
+	min-width:100%;
+	min-height: 100%;
 	position: absolute;
-	background-image: fill;
+	background-image: contain;
 	background-position: center;
 	background-position: no-repeat;
 }
 
 .homepage-searchbar{
 	position: relative;
-	left: 475px;
+	text-align: center;
 	top: 300px;
 }
 
