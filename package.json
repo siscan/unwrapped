@@ -1,5 +1,7 @@
 {
   "scripts": {
+		"start": "node server.js",
+		"dev": "nodemon server.js",
     "build": "handlebars views/partials/recipeCard.handlebars -f public/recipeCardTemplate.js",
     "prestart": "npm run build",
     "predev": "npm run build"
