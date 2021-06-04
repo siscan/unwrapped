@@ -2,7 +2,7 @@ var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars')
 
-var foodData = require('./foodData.json')
+//var foodData = require('./foodData.json')
 
 var app = express();
 
