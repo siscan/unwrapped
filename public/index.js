@@ -7,10 +7,10 @@ function createRecipeCard(url, title, duration, serving) {
     serving: serving
   }
 
-  return Handlebars.templates.recipeCard(cardContext)
+  var recipeCardHTML = Handlebars.templates.recipeCard(cardContext)
 
   var cardContainer = document.querySelector('.card-container')
-  cardContainer.insertAdjacentHTML('beforeend', Handlebars.templates.recipeCard(cardContext))
+  cardContainer.insertAdjacentHTML('beforeend', recipeCardHTML)
 }
 
 
