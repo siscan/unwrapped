@@ -4,10 +4,14 @@ var exphbs = require('express-handlebars')
 var foodData = require('./foodData.json')
 
 var app = express();
-app.engine('handlebars', exphbs({ defaultLayout: main }))
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 var port = 3000;
+
+app.get('/', function(req, res, next){
+	res.status(200).render('mainpage')
+})
 
 app.get('/recipe', function (req, res, next) {
     res.status(200).render('recipesPage', {
