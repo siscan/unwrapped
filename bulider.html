@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Yummy Recipe</title>
+
+	<!-- CSS FILE -->
+	<link rel="stylesheet" href="./style.css" media="screen">
+
+	<!-- FONTSSSS -->
+
+	<!-- the font for the search bar -->
+	<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
+
+	<!-- font for the rest of the website -->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+	<!--  Font for the title  -->
+	<link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+
+	<!-- ICONSSSSS -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
+	<!-- THE ICONS CODE
+	<i class="fas fa-heart"></i>
+	<i class="fas fa-user-friends"></i>
+	<i class="fas fa-clock"></i>
+	<i class="fas fa-utensils"></i>
+-->
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js"></script>
+<script src="/recipeCardTemplate.js"></script>
+<script src="/index.js"></script>
+
+</head>
+
+<body>
+	<header>
+		<h1 class="webtitle"></i> Yummy Recipe </h1>
+
+		<menu class="menu-bar">
+			<ul class="menu-list">
+				<li class="menuitem menulink"><a href="#">Home</a></li>
+				<li class="menuitem menulink"><a href="#">Recipes</a></li>
+				<li class="menuitem menulink"><a href="#">Favorites</a></li>
+				<li class="menuitem menulink"><a href="#">Add Recipe</a></li>
+			</ul>
+		</menu>
+    </header>
+
+    <main class = "recipebuilder">
+        <div id="create-twit-modal">
+            <div class="modal-dialog">
+    
+            <div class="modal-header">
+                <h3>Create a Recipe</h3>
+            </div>
+    
+            <div class="modal-body">
+                <div class="recipe-input-element">
+                    <label for="title-input">Title</label>
+                    <input type="text" id="title-input">
+
+                   
+
+                    
+
+                    
+                </div>
+
+                <div class="recipe-input-element">
+                    
+
+                    <label for="ingredients-input">Ingredients</label>
+                    <textarea id="ingredients-input"></textarea>
+
+                    <label for="instructions-input">Instructions</label>
+                    <textarea id="instructions-input"></textarea>
+                </div>
+
+                <div class="recipe-input-element">
+                    <label for="duration-input">Duration</label>
+                    <input type="text" id="duration-input">
+
+                    <label for="serving-input">Serving</label>
+                    <input type="text" id="serving-input">
+                </div>
+
+                <div class="recipe-input-element">
+                    <label for="author-input">Recipe by</label>
+                    <input type="text" id="author-input">
+                </div>
+                
+            </div>
+    
+            <div class="modal-footer">
+                <button type="button" class="modal-accept-button">Create Recipe</button>
+                <button type="button" class="modal-clear-button">Clear</button>
+            </div>
+    
+            </div>
+        </div>
+    </main>
+
+
+
+
+</body>
