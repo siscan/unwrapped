@@ -22,6 +22,12 @@ app.get('/recipe', function (req, res, next) {
 app.use(express.static('public'));
 
 /*
+app.get('/recipeView', function (req, res, next) {
+    res.status(200).sendFile(path.join(__dirname, 'public', 'recipeView.html'))
+});
+*/
+
+/*
 app.get("*", function (req, res, next) {
   res.status(404).render('404', {
     page: req.url,
