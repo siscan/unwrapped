@@ -44,9 +44,11 @@ function homeSearch() {
   var searchBarHome = document.getElementById('homepage-searchbar-input').value
   if (searchBar) {
     sessionStorage.setItem("lastSearch", searchBar);
+    searchBar.value = ''
   }
-  else if (searchBarHome) {
+  if (searchBarHome) {
     sessionStorage.setItem("lastSearch", searchBarHome);
+    searchBarHome.value = ''
   }
   window.location.href = '/recipe';
 }
@@ -91,10 +93,10 @@ function parseCardElem(cardElem) {
   card.title = cardTitleElem.textContent.trim();
 
   var cardDurationElem = cardElem.querySelector('.recipe-time');
-  card.duration = cardDurationElem.textContent.trim();
+  card.duration = cardDurationElem.textContent.match(/(\d+)/)[0];
 
   var cardServingElem = cardElem.querySelector('.recipe-servings');
-  card.serving = cardServingElem.textContent.trim();
+  card.serving = cardServingElem.textContent.match(/(\d+)/)[0];
 
   var cardIngredientsElem = cardElem.querySelector('.recipe-ingredients');
   card.ingredients = cardIngredientsElem.textContent.trim();
@@ -118,15 +120,14 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   var searchInput = document.getElementById('menubar-search-input');
-  if (searchInput) {
     if (window.location.href.indexOf('/recipe') == -1) {
-      searchInput.addEventListener('input', homeSearch);
+    searchInput.addEventListener('input', homeSearch);
     }
     searchInput.addEventListener('input', doSearchUpdate);
-  }
 
-  var homeSearchInput = document.getElementById('homepage-searchbar-input')
-  if (homeSearchInput) {
-    homeSearchInput.addEventListener('input', homeSearch)
-  }
-});
+
+    var homeSearchInput = document.getElementById('homepage-searchbar-input')
+      if (homeSearchInput) {
+        homeSearchInput.addEventListener('input', homeSearch)
+      }
+    });
