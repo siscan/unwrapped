@@ -61,13 +61,16 @@ var recipeContainer = document.getElementsByClassName('recipebuilder')
       var reqUrl = '/recipe/addRecipe'
       console.log("== reqUrl:", reqUrl)
       req.open('POST', reqUrl)
+
+      var ingredarray = document.getElementById('ingredients-input').value.split('\n');
+      var instructarray = document.getElementById('instructions-input').value.split('\n');
   
       var recipe = {
         title: titleInput.value,
         duration: durationInput.value,
         serving: servingInput.value,
-        ingredients: ingredInput.value,
-        instructions: instructInput.value,
+        ingredients: ingredarray,
+        instructions: instructarray,
         author: authorInput.value,
         url: urlInput.value
       }
