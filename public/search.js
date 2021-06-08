@@ -39,21 +39,12 @@ function insertNewCard(card)
   recipeContainer.insertAdjacentHTML('beforeend', newCard)
 }
 
-function homeSearch() {
-  var searchBar = document.getElementById('menubar-search-input').value
-  var searchBarHome = document.getElementById('homepage-searchbar-input').value
-  if (searchBar) {
-    sessionStorage.setItem("lastSearch", searchBar);
-    searchBar.value = ''
-  }
-  if (searchBarHome) {
-    sessionStorage.setItem("lastSearch", searchBarHome);
-    searchBarHome.value = ''
-  }
-  window.location.href = '/recipe';
-}
+
+
+
 
 function doSearchUpdate() {
+
   var previousSearch = sessionStorage.getItem("lastSearch")
   var searchQuery = ''
 
@@ -65,6 +56,7 @@ function doSearchUpdate() {
   }
   sessionStorage.setItem("lastSearch", '');
   console.log(searchQuery)
+
 
   var cardContainer = document.querySelector('.card-container');
   if (cardContainer) {
@@ -81,7 +73,21 @@ function doSearchUpdate() {
   });
 }
 
+function homeSearch() {
+  var searchBar = document.getElementById('menubar-search-input').value
+  var searchBarHome = document.getElementById('homepage-searchbar-input').value
+  if (searchBar) {
+    sessionStorage.setItem("lastSearch", searchBar);
+    searchBar.value = ''
+  }
+  else if (searchBarHome) {
+    sessionStorage.setItem("lastSearch", searchBarHome);
+    searchBarHome.value = ''
+  }
+  window.location.href = '/recipe';
 
+
+}
 
 function parseCardElem(cardElem) {
   var card = {};
@@ -121,13 +127,14 @@ window.addEventListener('DOMContentLoaded', function () {
 
   var searchInput = document.getElementById('menubar-search-input');
     if (window.location.href.indexOf('/recipe') == -1) {
-    searchInput.addEventListener('input', homeSearch);
+    searchInput.addEventListener('keyup', homeSearch);
+    doSearchUpdate
     }
     searchInput.addEventListener('input', doSearchUpdate);
 
 
     var homeSearchInput = document.getElementById('homepage-searchbar-input')
       if (homeSearchInput) {
-        homeSearchInput.addEventListener('input', homeSearch)
+        homeSearchInput.addEventListener('keyup', homeSearch)
       }
     });
