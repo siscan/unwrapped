@@ -191,11 +191,11 @@ li.menulink{
 	font-size: 28px;
   }
   
-  .modal-close-button {
+  #modal-close {
 	position: absolute;
 	right: 10px;
 	top: 5px;
-	font-size: 24px;
+	font-size: 48px;
 	border: none;
 	background: none;
 	padding: 0;

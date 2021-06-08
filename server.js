@@ -2,12 +2,16 @@ var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars')
 var foodData = require('./foodData.json')
+var fs = require('fs')
 
 var app = express();
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 var port = 3000;
+
+app.use(express.json())
+app.use(express.static('public'));
 
 app.get('/', function(req, res, next){
 	res.status(200).render('mainpage')
@@ -19,7 +23,37 @@ app.get('/recipe', function (req, res, next) {
 		})
 });
 
-app.use(express.static('public'));
+app.post('/recipe/addRecipe', function (req, res, next) {
+  console.log("== req.body:", req.body)
+  foodData.push({
+    title: req.body.title,
+    author: req.body.author,
+    duration: req.body.duration,
+    serving: req.body.serving,
+    ingredients: req.body.ingredients,
+    instructions: req.body.instructions,
+    url: req.body.url
+  })
+    console.log("== foodData:", foodData)
+    fs.writeFile(
+      __dirname + '/foodData.json',
+      JSON.stringify(foodData, null, 2),
+      function (err) {
+        if (err) {
+          res.status(500).send("Error writing new data.  Try again later.")
+        } else {
+          res.status(200).send()
+        }
+      }
+    )
+})
+
+
+
+
+
+
+
 
 /*
 app.get('/recipeView', function (req, res, next) {
