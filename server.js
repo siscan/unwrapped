@@ -27,7 +27,7 @@ app.get('/recipeView', function (req, res, next) {
 });
 */
 
-/*
+
 app.get("*", function (req, res, next) {
   res.status(404).render('404', {
     page: req.url,
@@ -35,7 +35,7 @@ app.get("*", function (req, res, next) {
   });
 });
 
-*/
+
 
 app.listen(port, function (err) {
   if (err) {
