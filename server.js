@@ -11,7 +11,6 @@ app.set('view engine', 'handlebars')
 var port = 3000;
 
 app.use(express.json())
-app.use(express.static('public'));
 
 app.get('/', function(req, res, next){
 	res.status(200).render('mainpage')
@@ -48,19 +47,12 @@ app.post('/recipe/addRecipe', function (req, res, next) {
     )
 })
 
-
-
-
-
-
-
-
 /*
 app.get('/recipeView', function (req, res, next) {
     res.status(200).sendFile(path.join(__dirname, 'public', 'recipeView.html'))
 });
 */
-
+app.use(express.static('public'));
 
 app.get("*", function (req, res, next) {
   res.status(404).render('404', {
