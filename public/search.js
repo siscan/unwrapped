@@ -99,10 +99,10 @@ function parseCardElem(cardElem) {
   card.title = cardTitleElem.textContent.trim();
 
   var cardDurationElem = cardElem.querySelector('.recipe-time');
-  card.duration = cardDurationElem.textContent.match(/(\d+)/)[0];
+  card.duration = cardDurationElem.textContent//.filter(/(\d+)/)[0];
 
   var cardServingElem = cardElem.querySelector('.recipe-servings');
-  card.serving = cardServingElem.textContent.match(/(\d+)/)[0];
+  card.serving = cardServingElem.textContent//.filter(/(\d+)/)[0];
 
   var cardIngredientsElem = cardElem.querySelector('.recipe-ingredients');
   card.ingredients = cardIngredientsElem.textContent.trim();
@@ -127,7 +127,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   var searchInput = document.getElementById('menubar-search-input');
     if (window.location.href.indexOf('/recipe') == -1) {
-    searchInput.addEventListener('keyup', homeSearch);
+    searchInput.addEventListener('click', homeSearch);
     doSearchUpdate
     }
     searchInput.addEventListener('input', doSearchUpdate);
