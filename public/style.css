@@ -122,10 +122,12 @@ li.menulink{
 	color: white;
 	position: absolute;
 	top: 5px;
-	right: 660px;
-	font-size: 25px;
-	background: none;
-	border: none;
+	right: 580px;
+	font-size: 30px;
+	background: black;
+	border-radius: 2px;
+	border: 1px solid #dadada;
+	font-family: 'Red Hat Display', sans-serif;
 }
 
 #search-button-home:hover{
