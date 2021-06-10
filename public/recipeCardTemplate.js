@@ -10,8 +10,10 @@ templates['recipeCard'] = template({"compiler":[8,">= 4.3.0"],"main":function(co
 
   return "<section class=\"recipe-card\">\r\n  <div class=\"img-container\">\r\n    <!-- The <i> tag below includes the bullhorn icon from Font Awesome.  Do not directly style this element. -->\r\n    <img class=\"recipe-img\" src=\""
     + alias4(((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data,"loc":{"start":{"line":4,"column":33},"end":{"line":4,"column":40}}}) : helper)))
-    + "\"/>\r\n  </div>\r\n  <div class=\"recipe-title\">\r\n    <a href=\"#\">"
-    + alias4(((helper = (helper = lookupProperty(helpers,"title") || (depth0 != null ? lookupProperty(depth0,"title") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data,"loc":{"start":{"line":7,"column":16},"end":{"line":7,"column":25}}}) : helper)))
+    + "\"/>\r\n  </div>\r\n  <div class=\"recipe-title\">\r\n    <a href=\"/recipe/"
+    + alias4(((helper = (helper = lookupProperty(helpers,"urlextension") || (depth0 != null ? lookupProperty(depth0,"urlextension") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"urlextension","hash":{},"data":data,"loc":{"start":{"line":7,"column":21},"end":{"line":7,"column":37}}}) : helper)))
+    + "\">"
+    + alias4(((helper = (helper = lookupProperty(helpers,"title") || (depth0 != null ? lookupProperty(depth0,"title") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data,"loc":{"start":{"line":7,"column":39},"end":{"line":7,"column":48}}}) : helper)))
     + "</a>\r\n  </div>\r\n  <div class=\"recipe-time\">\r\n    <i class=\"fas fa-clock\"></i> Time: "
     + alias4(((helper = (helper = lookupProperty(helpers,"duration") || (depth0 != null ? lookupProperty(depth0,"duration") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"duration","hash":{},"data":data,"loc":{"start":{"line":10,"column":39},"end":{"line":10,"column":51}}}) : helper)))
     + " mins\r\n  </div>\r\n  <div class=\"recipe-servings\">\r\n    <p><i class=\"fas fa-user-friends\"></i> serves "

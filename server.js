@@ -22,6 +22,23 @@ app.get('/recipe', function (req, res, next) {
 		})
 });
 
+app.get('/recipe/:numRecipe', function(req,res){
+	var reqIdx = req.params.numRecipe
+	if(reqIdx >= 0 && reqIdx < foodData.length)
+	{
+		res.status(200).render('recipeView',  {
+			recipe: foodData[reqIdx],
+			partial: true
+		})
+	}
+	else{
+		res.status(404).render('404', {
+	    page: req.url,
+	    scripts: [ "/index.js" ]
+	  })
+	}
+})
+
 app.post('/recipe/addRecipe', function (req, res, next) {
   console.log("== req.body:", req.body)
   foodData.push({
@@ -31,7 +48,8 @@ app.post('/recipe/addRecipe', function (req, res, next) {
     serving: req.body.serving,
     ingredients: req.body.ingredients,
     instructions: req.body.instructions,
-    url: req.body.url
+    url: req.body.url,
+		urlextension: req.body.urlextension
   })
     console.log("== foodData:", foodData)
     fs.writeFile(
@@ -47,11 +65,6 @@ app.post('/recipe/addRecipe', function (req, res, next) {
     )
 })
 
-/*
-app.get('/recipeView', function (req, res, next) {
-    res.status(200).sendFile(path.join(__dirname, 'public', 'recipeView.html'))
-});
-*/
 app.use(express.static('public'));
 
 app.get("*", function (req, res, next) {

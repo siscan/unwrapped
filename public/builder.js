@@ -7,6 +7,12 @@ var authorInput = document.getElementById('author-input')
 var urlInput = document.getElementById('url-input')
 var recipeContainer = document.getElementsByClassName('recipebuilder')
 
+/*
+var fs = require('fs')
+var path = require('path');
+var foodData = require('../foodData.json')
+var foodDataLength = foodData.length
+*/
 
 
   function openRecipeCreate(event) {
@@ -15,7 +21,7 @@ var recipeContainer = document.getElementsByClassName('recipebuilder')
     var button = document.getElementById("create-recipe-button")
     recipeContainer.classList.toggle('hidden')
     menu.classList.toggle('hidden')
-    
+
     button.classList.toggle('hidden')
     titleInput.value = ''
     ingredInput.value = ''
@@ -35,13 +41,13 @@ var recipeContainer = document.getElementsByClassName('recipebuilder')
     authorInput.value = ''
     urlInput.value = ''
   }
-  
 
 
 
 
 
-  
+
+
   function recipeCreate() {
 
     titleInput = document.getElementById('title-input')
@@ -51,12 +57,14 @@ var recipeContainer = document.getElementsByClassName('recipebuilder')
     servingInput = document.getElementById('serving-input')
     authorInput = document.getElementById('author-input')
     urlInput = document.getElementById('url-input')
-  
+		var recipeCard = document.getElementsByClassName('recipe-card')
+		var dataLength = recipeCard.length
+
     if(titleInput.value == '' || ingredInput.value == '' || instructInput.value == '' || durationInput.value == '' || servingInput.value == '' || authorInput.value == '' || urlInput.value == ''){
       alert("Please fill out all text boxes")
     }
     else {
-  
+
       var req = new XMLHttpRequest()
       var reqUrl = '/recipe/addRecipe'
       console.log("== reqUrl:", reqUrl)
@@ -64,7 +72,7 @@ var recipeContainer = document.getElementsByClassName('recipebuilder')
 
       var ingredarray = document.getElementById('ingredients-input').value.split('\n');
       var instructarray = document.getElementById('instructions-input').value.split('\n');
-  
+
       var recipe = {
         title: titleInput.value,
         duration: durationInput.value,
@@ -72,15 +80,16 @@ var recipeContainer = document.getElementsByClassName('recipebuilder')
         ingredients: ingredarray,
         instructions: instructarray,
         author: authorInput.value,
-        url: urlInput.value
+        url: urlInput.value,
+				urlextension: dataLength
       }
       var reqBody = JSON.stringify(recipe)
       console.log("== reqBody:", reqBody)
       console.log("== reqBody.url:", reqBody.url)
       console.log("== typeof(reqBody):", typeof(reqBody))
-  
+
       req.setRequestHeader('Content-Type', 'application/json')
-  
+
       req.addEventListener('load', function (event) {
         if (event.target.status === 200) {
           var recipeCardTemplate = Handlebars.templates.recipeCard;
@@ -91,13 +100,13 @@ var recipeContainer = document.getElementsByClassName('recipebuilder')
           alert("Failed to add photo to database; error:\n\n" + event.target.response)
         }
       })
-  
+
       req.send(reqBody)
-  
+
       openRecipeCreate()
-  
+
     }
-  
+
   }
 
 
@@ -107,13 +116,13 @@ var recipeContainer = document.getElementsByClassName('recipebuilder')
   var button = document.getElementById("create-recipe-button")
   button.addEventListener('click', openRecipeCreate)
 
-  
+
   var buttons = document.getElementsByClassName('modal-clear-button')
   for (var i = 0; i < buttons.length; i++) {
-    
+
     buttons[i].addEventListener('click', clearRecipeCreate)
   }
-  
+
   var buttons = document.getElementsByClassName('modal-accept-button')
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', recipeCreate)
