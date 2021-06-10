@@ -335,10 +335,10 @@ li.menulink{
  */
 
  .recipe-container {
-		padding:30px 50px 690px 800px;
+		padding: 55px 179px 75px 179px;
 	  align-items: center;
-	  background-color: rgb(223, 223, 223)
-	  /* min-height: 1080px;  */
+	  background-color: rgb(223, 223, 223);
+	  max-height: 1080px;
   }
 
   .recipe-img-view {
@@ -423,6 +423,7 @@ li.menulink{
   .ingredients {
 	  padding: 0 0 0 50px;
 		position: relative;
+		min-width: 600px;
 		top: -600px;
 		left:550px;
   }
@@ -436,7 +437,8 @@ li.menulink{
   }
 
   .instructions {
-	padding: 0 0 0 50px;
+	padding: 0px 0px 100px 50px;
+	min-width: 600px;
 	position: relative;
 	font-size: 17px;
 	top: -600px;
